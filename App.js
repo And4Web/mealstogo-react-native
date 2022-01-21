@@ -23,13 +23,10 @@ const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight,
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 
   search: {
     padding: 16,
-    backgroundColor: "green",
   },
 
   list: {
