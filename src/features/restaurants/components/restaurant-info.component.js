@@ -1,13 +1,14 @@
 import { disableExpoCliLogging } from "expo/build/logs/Logs";
 import React from "react";
-import { Text } from "react-native";
+import { Text, StyleSheet } from "react-native";
+import { Card } from "react-native-paper";
 
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
-    name = "65 Chicken",
+    name = "65 Chicken Corner",
     icon,
     photos = [
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.collinsdictionary.com%2Fdictionary%2Fenglish%2Frestaurant&psig=AOvVaw0wZIoZLa7J3mibcSQFofB_&ust=1642844084902000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOCegbL6w_UCFQAAAAAdAAAAABAD",
+      "https://assets.cntraveller.in/photos/614071700adc3d1e95c7adbd/master/pass/outdoor-dining-pune-daily-all-day.jpg",
     ],
     address = "purani dilli, sainik chawani",
     rating = 4.5,
@@ -15,5 +16,25 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
     isClosedTemporarily,
   } = restaurant;
 
-  return <Text>{name}</Text>;
+  return (
+    <Card elevation={5} style={styles.card}>
+      <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
+      <Text style={styles.title}>{name}</Text>
+    </Card>
+  );
 };
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: "white",
+  },
+  cover: {
+    padding: 10,
+    backgroundColor: "white",
+  },
+  title: {
+    padding: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+});
