@@ -3,9 +3,9 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
 
-export const RestaurantInfo = ({ restaurant = {} }) => {
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
-    name = "65 Chicken Corner",
+    name = "Jalebi Samosa",
     icon,
     photos = [
       "https://assets.cntraveller.in/photos/614071700adc3d1e95c7adbd/master/pass/outdoor-dining-pune-daily-all-day.jpg",
