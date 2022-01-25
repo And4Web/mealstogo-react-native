@@ -6,9 +6,15 @@ import styled from "styled-components/native";
 
 const Title = styled.Text`
   padding: 10px;
-  color: black;
   font-size: 20px;
   font-weight: bold;
+`;
+const ReastaurantCard = styled(Card)`
+  background-color: white;
+`;
+const RestaurantCardCover = styled(Card.Cover)`
+  padding: 10px;
+  background-color: white;
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -25,25 +31,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   return (
-    <Card elevation={5} style={styles.card}>
-      <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
-      {/* <Text style={styles.title}>{name}</Text> */}
+    <ReastaurantCard elevation={5}>
+      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Title>{name}</Title>
-    </Card>
+    </ReastaurantCard>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "white",
-  },
-  cover: {
-    padding: 10,
-    backgroundColor: "white",
-  },
-  title: {
-    padding: 10,
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});
