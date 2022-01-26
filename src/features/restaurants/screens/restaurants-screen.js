@@ -5,7 +5,7 @@ import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 const SafeContainer = styled(SafeAreaView)`
-  margin-top: ${StatusBar.currentHeight};
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
   flex: 1;
 `;
 const Search = styled(View)`
