@@ -52,7 +52,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     photos = [
       "https://assets.cntraveller.in/photos/614071700adc3d1e95c7adbd/master/pass/outdoor-dining-pune-daily-all-day.jpg",
     ],
-    address = "purani dilli, sainik chawani",
+    address = "near Chandani Chauk Metro Gate no.2",
     rating = 4.7,
     isOpenNow = true,
     isClosedTemporarily = true,
