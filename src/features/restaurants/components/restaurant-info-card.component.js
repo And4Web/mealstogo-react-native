@@ -6,6 +6,7 @@ import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer.component";
 
 const Title = styled.Text`
   padding-top: ${(props) => props.theme.space[2]};
@@ -66,6 +67,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
       <Info>
         <View style={{ flexDirection: "row" }}>
           <Title>{name}</Title>
+          <Spacer variant="leftSmall" />
           <View style={{ paddingLeft: 5, marginTop: 8 }}>
             <Image style={{ width: 20, height: 20 }} source={{ uri: icon }} />
           </View>
@@ -83,7 +85,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
               <Text
                 style={{
                   color: "red",
-                  paddingRight: 5,
+
                   fontSize: 16,
                 }}
                 variant="label"
@@ -91,6 +93,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                 Closed Temporarily
               </Text>
             )}
+            <Spacer variant="leftSmall" />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
           </SectionEnd>
         </Section>
