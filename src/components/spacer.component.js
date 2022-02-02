@@ -41,3 +41,7 @@ export const Spacer = ({ variant }) => {
     return <LeftLarge />;
   }
 };
+
+// check the lesson to learn how to remove all the if statements and use some good logic for this spacer component by using props to get 'position' and 'size' values directly from other components and then use them here.
+
+// Spacer component is a component whose job is just to give margins and paddings around other components in the app. We will use this technique a lot in our development career, so learn it properly...
