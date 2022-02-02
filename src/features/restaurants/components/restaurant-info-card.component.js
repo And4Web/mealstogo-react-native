@@ -1,10 +1,11 @@
 import { disableExpoCliLogging } from "expo/build/logs/Logs";
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
+import open from "../../../../assets/open";
 
 const Title = styled.Text`
   padding-top: ${(props) => props.theme.space[2]};
@@ -30,6 +31,15 @@ const ReastaurantCard = styled(Card)`
 const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props) => props.theme.space[2]};
 `;
+const Section = styled(View)`
+  flex-direction: row;
+  align-items: center;
+`;
+const SectionEnd = styled(View)`
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
 const Rating = styled(View)`
   flex-direction: row;
 `;
@@ -37,29 +47,53 @@ const Rating = styled(View)`
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Jalebi Samosa",
-    icon,
+    icon = "https://cdn-icons-png.flaticon.com/512/48/48442.png",
     photos = [
       "https://assets.cntraveller.in/photos/614071700adc3d1e95c7adbd/master/pass/outdoor-dining-pune-daily-all-day.jpg",
     ],
     address = "purani dilli, sainik chawani",
     rating = 4.7,
     isOpenNow = true,
-    isClosedTemporarily,
+    isClosedTemporarily = true,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
-  console.log(ratingArray);
+  // console.log(ratingArray);
 
   return (
     <ReastaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
-        <Rating>
-          {ratingArray.map(() => (
-            <SvgXml xml={star} width={20} height={20} />
-          ))}
-        </Rating>
+        <View style={{ flexDirection: "row" }}>
+          <Title>{name}</Title>
+          <View style={{ paddingLeft: 5, marginTop: 8 }}>
+            <Image style={{ width: 20, height: 20 }} source={{ uri: icon }} />
+          </View>
+        </View>
+
+        <Section>
+          <Rating>
+            {ratingArray.map(() => (
+              <SvgXml xml={star} width={20} height={20} />
+            ))}
+          </Rating>
+
+          <SectionEnd>
+            {isClosedTemporarily && (
+              <Text
+                style={{
+                  color: "red",
+                  paddingRight: 5,
+                  fontSize: 16,
+                }}
+                variant="label"
+              >
+                Closed Temporarily
+              </Text>
+            )}
+            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+          </SectionEnd>
+        </Section>
 
         <Address>{address}</Address>
       </Info>
